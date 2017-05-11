@@ -16,7 +16,7 @@ def alphanumeric_acronyms_list(word_list, prefix=1):
         acronyms = alphanumeric_acronyms(word, prefix)
         output.setdefault(acronyms, []).append(word)
 
-    clean = {key: value for (key, value) in output.items() if len(value) == 1}.keys()
+    clean = list({key: value for (key, value) in output.items() if len(value) == 1})
     collusion = {key: value for (key, value) in output.items() if len(value) > 1}.values()
 
     if collusion:
@@ -37,21 +37,22 @@ class TestAlphanumericAcronymsMethods(unittest.TestCase):
         self.assertEqual(alphanumeric_acronyms_list(["internationalization", "localization"]), ['i18n', 'l10n'])
 
     def test_alphanumeric_acronyms_list_collusion_words(self):
-        self.assertEqual(alphanumeric_acronyms_list([
+        self.assertEqual(sorted(alphanumeric_acronyms_list([
             'hydrochemistry',
             'historiography',
             'histochemistry',
             'ferromagnetic',
             'ferroelectric',
             'hallucinogenic',
-            'hermaphroditic']),
-            ['hy11y',
-             'ha11c',
-             'he11c',
-             'histoc7y',
-             'histor7y',
-             'ferrom6c',
-             'ferroe6c'])
+            'hermaphroditic'])),
+            sorted([
+                'hy11y',
+                'ha11c',
+                'he11c',
+                'histoc7y',
+                'histor7y',
+                'ferrom6c',
+                'ferroe6c']))
 
 
 if __name__ == '__main__':

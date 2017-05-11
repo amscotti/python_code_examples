@@ -5,7 +5,7 @@ import unittest
 
 def print_triangle(n):
     for row in triangle(n):
-        print " ".join(str(x) for x in row)
+        print(" ".join(str(x) for x in row))
 
 
 def triangle(n):
