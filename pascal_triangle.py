@@ -12,7 +12,7 @@ def triangle(n):
     for row in range(n):
         temp = [1]
         for i in range(row):
-            temp.append(temp[-1] * (row - i) * 1 / (i + 1))
+            temp.append(int(temp[-1] * (row - i) * 1 / (i + 1)))
         yield temp
 
 

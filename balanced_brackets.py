@@ -42,11 +42,10 @@ class TestBalancedMethods(unittest.TestCase):
         self.assertEqual(balanced("[{)]"), "NO")
 
     def test_balanced_input_file(self):
-        with open("balanced_brackets_inputs.txt", "r") as file_input:
-            with open("balanced_brackets_output.txt", "r") as file_output:
-                output = file_output.readlines()
-                for index, link_input in enumerate(file_input.readlines()[1:]):
-                    self.assertEqual(balanced(link_input.strip()), output[index].strip())
+        with open("balanced_brackets_inputs.txt", "r") as inputf, open("balanced_brackets_output.txt", "r") as outputf:
+            output = outputf.readlines()
+            for index, link_input in enumerate(inputf.readlines()[1:]):
+                self.assertEqual(balanced(link_input.strip()), output[index].strip())
 
 if __name__ == '__main__':
     unittest.main()
