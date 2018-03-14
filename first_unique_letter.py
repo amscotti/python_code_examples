@@ -4,8 +4,7 @@ import unittest
 
 
 def first_unique_letter(word):
-    unique_letters = [i for i in word if word.count(i) == 1]
-    return unique_letters[0] if len(unique_letters) else None
+    return next(iter([i for i in word if word.count(i) == 1]), None)
 
 
 class TestFirstUniqueLetterMethods(unittest.TestCase):
