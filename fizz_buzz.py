@@ -18,7 +18,6 @@ def fizz_buzz(stop):
 
 
 class TestFizzBuzzMethods(unittest.TestCase):
-
     def test_fizz_buzz_3(self):
         self.assertEqual(list(fizz_buzz(3)), [1, 2, 'Fizz'])
 
@@ -28,8 +27,10 @@ class TestFizzBuzzMethods(unittest.TestCase):
     def test_fizz_buzz_15(self):
         self.assertEqual(
             list(fizz_buzz(15)),
-            [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'FizzBuzz']
+            [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz',
+             'Buzz', 11, 'Fizz', 13, 14, 'FizzBuzz']
         )
+
 
 if __name__ == '__main__':
     unittest.main()

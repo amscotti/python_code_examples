@@ -16,17 +16,21 @@ def alphanumeric_acronyms_list(word_list, prefix=1):
         acronyms = alphanumeric_acronyms(word, prefix)
         output.setdefault(acronyms, []).append(word)
 
-    clean = list({key: value for (key, value) in output.items() if len(value) == 1})
-    collusion = {key: value for (key, value) in output.items() if len(value) > 1}.values()
+    clean = [key for (key, value) in output.items() if len(value) == 1]
+    collusion = [value for (key, value) in output.items() if len(value) > 1]
 
     if collusion:
-        clean.extend(alphanumeric_acronyms_list([item for sublist in collusion for item in sublist], prefix+1))
+        clean.extend(
+            alphanumeric_acronyms_list(
+                [item for sublist in collusion for item in sublist],
+                prefix + 1
+            )
+        )
 
     return clean
 
 
 class TestAlphanumericAcronymsMethods(unittest.TestCase):
-
     def test_alphanumeric_acronyms_internationalization(self):
         self.assertEqual(alphanumeric_acronyms("internationalization"), "i18n")
 
@@ -34,7 +38,9 @@ class TestAlphanumericAcronymsMethods(unittest.TestCase):
         self.assertEqual(alphanumeric_acronyms("localization"), "l10n")
 
     def test_alphanumeric_acronyms_list_words(self):
-        self.assertEqual(alphanumeric_acronyms_list(["internationalization", "localization"]), ['i18n', 'l10n'])
+        self.assertEqual(alphanumeric_acronyms_list(
+            ["internationalization", "localization"]),
+            ['i18n', 'l10n'])
 
     def test_alphanumeric_acronyms_list_collusion_words(self):
         self.assertEqual(sorted(alphanumeric_acronyms_list([

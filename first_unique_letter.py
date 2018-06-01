@@ -4,11 +4,10 @@ import unittest
 
 
 def first_unique_letter(word):
-    return next(iter([i for i in word if word.count(i) == 1]), None)
+    return next((i for i in word if word.count(i) == 1), None)
 
 
 class TestFirstUniqueLetterMethods(unittest.TestCase):
-
     def test_first_unique_letter_a(self):
         self.assertEqual(first_unique_letter('abc'), 'a')
 
@@ -20,6 +19,7 @@ class TestFirstUniqueLetterMethods(unittest.TestCase):
 
     def test_first_unique_letter_none(self):
         self.assertEqual(first_unique_letter('aabbcc'), None)
+
 
 if __name__ == '__main__':
     unittest.main()

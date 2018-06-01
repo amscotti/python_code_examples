@@ -17,7 +17,6 @@ def triangle(n):
 
 
 class TestTriangleMethods(unittest.TestCase):
-
     def test_triangle_level_1(self):
         self.assertEqual(list(triangle(1)), [[1]])
 
@@ -60,6 +59,7 @@ class TestTriangleMethods(unittest.TestCase):
             [1, 4, 6, 4, 1],
             [1, 5, 10, 10, 5, 1]
         ])
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -3,5 +3,8 @@ python:
   - "2.7"
   - "3.6"
   - "nightly" # currently points to 3.7-dev
+install: "pip install -r requirements.txt"
 # command to run tests
-script: python -m unittest discover -p '*.py'
+script:
+  - flake8 .
+  - python -m unittest discover -p '*.py'
