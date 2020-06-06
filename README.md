@@ -1,1 +1,1 @@
-# Python Code Examples ![build_badge](https://travis-ci.org/amscotti/python_code_examples.svg?branch=master)
+![Python package](https://github.com/amscotti/python_code_examples/workflows/Python%20package/badge.svg?branch=master)
