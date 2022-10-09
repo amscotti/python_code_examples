@@ -3,7 +3,7 @@
 import unittest
 
 
-def first_unique_letter(word):
+def first_unique_letter(word: str) -> str | None:
     return next((i for i in word if word.count(i) == 1), None)
 
 

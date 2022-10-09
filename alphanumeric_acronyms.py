@@ -3,15 +3,15 @@
 import unittest
 
 
-def alphanumeric_acronyms(word, prefix=1):
+def alphanumeric_acronyms(word: str, prefix=1) -> str:
     if len(word) > prefix + 2:
         return "{}{}{}".format(word[0:prefix], len(word[prefix:-1]), word[-1])
     else:
         return word
 
 
-def alphanumeric_acronyms_list(word_list, prefix=1):
-    output = {}
+def alphanumeric_acronyms_list(word_list: list[str], prefix=1) -> list[str]:
+    output: dict[str, list[str]] = {}
     for word in word_list:
         acronyms = alphanumeric_acronyms(word, prefix)
         output.setdefault(acronyms, []).append(word)

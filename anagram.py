@@ -3,12 +3,12 @@
 import unittest
 
 
-def anagram(word_a, word_b):
+def anagram(word_a: str, word_b: str) -> bool:
     return word_a != word_b and sorted(word_a) == sorted(word_b)
 
 
-def find_anagrams(word_list):
-    output = {}
+def find_anagrams(word_list: list[str]) -> dict[str, list[str]]:
+    output: dict[str, list[str]] = {}
     for word_a in word_list:
         output.setdefault(word_a, []).extend(
             [word_b for word_b in word_list if anagram(word_a, word_b)]

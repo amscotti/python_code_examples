@@ -12,7 +12,7 @@ LOOKUP = {
 }
 
 
-def balanced(input_string, stack):
+def balanced(input_string: str, stack: list[str]) -> str:
     if not input_string and not stack:
         return "YES"
     elif not input_string and stack:

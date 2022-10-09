@@ -9,8 +9,8 @@ LOOKUP = {
 }
 
 
-def balanced(input_string):
-    stack = []
+def balanced(input_string: str) -> str:
+    stack: list[str] = []
 
     for item in input_string:
         if item in LOOKUP:

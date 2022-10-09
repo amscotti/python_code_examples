@@ -3,7 +3,7 @@
 import unittest
 
 
-def fizz_buzz(stop):
+def fizz_buzz(stop: int):
     current = 1
     while current <= stop:
         if current % 15 == 0:

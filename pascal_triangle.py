@@ -3,12 +3,12 @@
 import unittest
 
 
-def print_triangle(n):
+def print_triangle(n: int) -> None:
     for row in triangle(n):
         print(" ".join(str(x) for x in row))
 
 
-def triangle(n):
+def triangle(n: int):
     for row in range(n):
         temp = [1]
         for i in range(row):
