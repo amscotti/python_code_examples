@@ -1,0 +1,25 @@
+[flake8]
+# Count the number of occurrences of each error
+count = True
+
+# Select specific error codes to report (E9: Syntax errors, F63: Undefined names, F7 and F82: Pyflakes errors)
+select = E9,F63,F7,F82,B,B9
+
+# Show the source code for each error and display a count of total errors
+show-source = True
+statistics = True
+
+# Exit with a zero status (success) even if errors are found, treating them as warnings
+# This is useful for running flake8 in CI pipelines where you don't want to fail the build
+# but still want to report the issues
+ignore = E,W
+max-complexity = 10
+max-line-length = 127
+docstring-convention = pep257
+
+# Exclude specific directories from linting (modify this list as needed)
+exclude =
+    .git,
+    __pycache__,
+    .venv,
+    venv
